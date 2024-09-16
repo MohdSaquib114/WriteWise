@@ -9,6 +9,30 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		keyframes:{
+			colorChange:{
+				'0%': { color: '#bfdbfe' }, 
+				'25%': { color: '#60a5fa' }, 
+				'50%': { color: '#bfdbfe' }, 
+				'75%': { color: '#60a5fa' }, 
+				'100%': { color: '#60a5fa' }, 
+			},
+			fadeIn: {
+				'0%': { opacity: '0' },
+				'100%': { opacity: '1' },
+			  },
+			  fadeOut: {
+				'0%': { opacity: '1' },
+				'100%': { opacity: '0' },
+			  },
+		},
+
+		animation:{
+		   'color-change': 'colorChange 5s forwards',
+		   'fade-in': 'fadeIn 5s forwards',
+		   'fade-out': 'fadeOut 2s forwards',
+   
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

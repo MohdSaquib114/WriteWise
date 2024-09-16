@@ -1,6 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import NextAuth, {type DefaultSession } from "next-auth"
-import { prismaClient } from "@/app/lib/db";
+import { createUser, prismaClient } from "@/lib/db";
+import { redirect } from "next/navigation";
 
 declare module "next-auth" {
     interface Session {
@@ -20,6 +21,7 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET ?? "secret",
     callbacks: {
         async signIn(params) {
+          
             if (!params.user.email) {
                 return false;
             }
@@ -33,13 +35,12 @@ const handler = NextAuth({
                 if (existingUser) {
                     return true
                 }
-                await prismaClient.user.create({
-                    data: {
-                        email: params.user.email,
-                        provider: "Google"
-                    } 
-                })
-                return true;
+                await createUser(params.user.email)
+                redirect("/dashboard") 
+               
+
+                 return true;
+          
              } catch(e) {
                 console.log(e);
                 return false;

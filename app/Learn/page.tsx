@@ -1,9 +1,14 @@
-import { Button } from "@/components/ui/button"
+
+import SignInBtn from "@/components/SignInBtn"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useRedirect } from "@/lib/hooks/useRedirect"
 import { CheckCircle, Edit3, Zap, Book, Target, Sparkles, ArrowRight } from "lucide-react"
 
 
+
 export default function LearnMore() {
+    // useRedirect()
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100">
    
@@ -28,7 +33,7 @@ export default function LearnMore() {
               Why Choose WriteWise?
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500 rounded-md">
                 <CardHeader>
                   <CheckCircle className="w-10 h-10 text-green-400 mb-4" />
                   <CardTitle className="text-purple-300">Unparalleled Accuracy</CardTitle>
@@ -37,7 +42,7 @@ export default function LearnMore() {
                   Our AI-powered engine provides industry-leading accuracy in grammar correction and style suggestions.
                 </CardContent>
               </Card>
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500  rounded-md">
                 <CardHeader>
                   <Zap className="w-10 h-10 text-yellow-400 mb-4" />
                   <CardTitle className="text-purple-300">Lightning-Fast Analysis</CardTitle>
@@ -46,7 +51,7 @@ export default function LearnMore() {
                   Get instant feedback on your writing, allowing you to make improvements in real-time.
                 </CardContent>
               </Card>
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500  rounded-md">
                 <CardHeader>
                   <Book className="w-10 h-10 text-blue-400 mb-4" />
                   <CardTitle className="text-purple-300">Comprehensive Learning</CardTitle>
@@ -55,7 +60,7 @@ export default function LearnMore() {
                   Improve your writing skills over time with detailed explanations and suggestions for each correction.
                 </CardContent>
               </Card>
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500 p-5 rounded-md">
                 <CardHeader>
                   <Target className="w-10 h-10 text-red-400 mb-4" />
                   <CardTitle className="text-purple-300">Contextual Suggestions</CardTitle>
@@ -64,7 +69,7 @@ export default function LearnMore() {
                   Receive style and phrasing recommendations tailored to your specific writing context and goals.
                 </CardContent>
               </Card>
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500 p-5 rounded-md">
                 <CardHeader>
                   <Sparkles className="w-10 h-10 text-purple-400 mb-4" />
                   <CardTitle className="text-purple-300">Advanced AI Technology</CardTitle>
@@ -73,7 +78,7 @@ export default function LearnMore() {
                   Benefit from cutting-edge natural language processing and machine learning algorithms.
                 </CardContent>
               </Card>
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-gray-800 border-gray-700 transition-colors cursor-pointer hover:bg-slate-500 p-5 rounded-md">
                 <CardHeader>
                   <Edit3 className="w-10 h-10 text-orange-400 mb-4" />
                   <CardTitle className="text-purple-300">Versatile Writing Support</CardTitle>
@@ -145,10 +150,10 @@ export default function LearnMore() {
                 Join thousands of satisfied users who have elevated their writing with WriteWise.
                 Start your journey to flawless, impactful writing today.
               </p>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+              <SignInBtn  style="bg-purple-600 hover:bg-purple-700 text-white" >
                 Get Started for Free
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              </SignInBtn>
             </div>
           </div>
         </section>
