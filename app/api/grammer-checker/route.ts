@@ -3,22 +3,40 @@ import { grammerChecker } from "@/lib/grammerChecker";
 import { NextRequest, NextResponse } from "next/server";
 
 
+function removeFirstLine(jsonString:string) {
+    // Find the index of the first occurrence of ':'
+    const colonIndex = jsonString.indexOf(':');
+    
+    if (colonIndex === -1) {
+      // If no colon is found, return the original string
+      return jsonString
+    }
+    
+    // Extract the substring from the first colon to the end
+    const jsonContent = jsonString.substring(colonIndex )
+    // Return the JSON content
+    return jsonContent ;
+  }
+  
+
 export async function POST(req:NextRequest){
     try {
         
         const {text} = await req.json()
-        const url = new URL(req.url);
-        const userId = url.searchParams.get('userId')
-        const user = await getUserById(userId as string)
-        if(!user){
-            return NextResponse.json({message:"User Not found"},{status:404})
-        }
-        const chatResponse = await grammerChecker(text)
+      
+      
+        let cleaned = text.replace(/(\r\n|\n|\r)/gm, ' ');
+  
+
+  cleaned = cleaned.replace(/[^\w\s.,?!-]/g, '');
+        const chatResponse = await grammerChecker(cleaned)
+    //    const response = removeFirstLine(chatResponse as string)
        
         
         return NextResponse.json({message:chatResponse},{status:200})
 
     } catch (error) {
+        console.log(error)
         return NextResponse.json({error:error},{status:404})
         
     }

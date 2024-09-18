@@ -1,8 +1,8 @@
 
 import SignInBtn from "@/components/SignInBtn"
-
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useRedirect } from "@/lib/hooks/useRedirect"
+
 import { CheckCircle, Edit3, Zap, Book, Target, Sparkles, ArrowRight } from "lucide-react"
 
 
@@ -10,17 +10,17 @@ import { CheckCircle, Edit3, Zap, Book, Target, Sparkles, ArrowRight } from "luc
 export default function LearnMore() {
     // useRedirect()
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100">
+    <div className="flex flex-col min-h-screen bg-white text-gray-100">
    
 
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-800">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-purple-100">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-purple-300">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none  animate-color-change">
                 Discover the Power of WriteWise
               </h1>
-              <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl">
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
                 Elevate your writing with our advanced AI-powered grammar correction and style enhancement tool.
               </p>
             </div>
@@ -150,10 +150,10 @@ export default function LearnMore() {
                 Join thousands of satisfied users who have elevated their writing with WriteWise.
                 Start your journey to flawless, impactful writing today.
               </p>
-              <SignInBtn  style="bg-purple-600 hover:bg-purple-700 text-white" >
+              <Link href="/dashboard" className="bg-purple-600 hover:bg-purple-700 flex p-2 rounded-[.5rem] text-white" >
                 Get Started for Free
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </SignInBtn>
+                <ArrowRight className="ml-2 h-4 w-4 self-center" />
+              </Link>
             </div>
           </div>
         </section>

@@ -1,13 +1,10 @@
 'use client'
 import Link from "next/link"
 import {Edit3} from "lucide-react"
-import { signIn, signOut, useSession } from "next-auth/react"
-import { Button } from "./ui/button"
-import { usePathname } from "next/navigation"
-
+import { HouseIcon } from "lucide-react"
 function Navbar() {
-    const session = useSession()
-    const pathname = usePathname()
+    
+    
 
 
   return (
@@ -18,20 +15,23 @@ function Navbar() {
     </Link>
     <nav className="ml-auto flex items-center gap-4 sm:gap-6">
      {
-  !pathname.includes('dashboard') && 
+ 
             <>
-                <Link className="text-sm font-medium hover:text-purple-300" href="/#features">
+                <Link className="text-sm font-medium hover:text-purple-300 " href="/">
+                  <HouseIcon />
+                </Link>
+                <Link className="text-sm font-medium hover:text-purple-300 hidden sm:block" href="/#features">
                     Features
                 </Link>
-                <Link className="text-sm font-medium hover:text-purple-300" href="/#how-it-works">
+                <Link className="text-sm font-medium hover:text-purple-300 hidden sm:block" href="/#how-it-works">
                     How It Works
+                </Link>
+                <Link className="text-sm font-medium hover:text-purple-300" href="/dashboard">
+                    Dashboard
                 </Link>
             </> 
       }
-      {/* {pathname.includes('dashboard') && <p>{session.data?.user}</p> } */}
-      {session.data?.user && <Button className="bg-white rounded-[7px] border-black/30 border text-black/60  text-md  shadow-none" onClick={() => signOut()}>Logout</Button>}
-      {!session.data?.user &&<Button className="bg-white rounded-[7px] border-black/30 border text-black/60  text-md  shadow-none" onClick={() => signIn()}>Sign In</Button>}
-    </nav>
+      </nav>
   </header>
   )
 }

@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input"
 import { CheckCircle, Edit3, Zap, ChevronRight } from "lucide-react"
-import { useRedirect } from '@/lib/hooks/useRedirect'
+
 
 // import Image from "next/image"
 import Link from "next/link"
@@ -10,8 +10,7 @@ import SignInBtn from "./SignInBtn"
 import { FlipWords } from "./ui/flip-words"
 
 export default function Home() {
-    useRedirect()
-    const words = ["Emails", "Essays", "Reports", "Reports",'Messages', ''];
+ 
   return (
     <div className="flex flex-col min-h-screen bg-green-50 text-green-900 ">
      
@@ -21,7 +20,6 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-6 text-center">
               <div className="space-y-4">
                 <div>
-               <p className="text-left text-lg font-semibold">Perfect Your<FlipWords words={words} /> <br /> Across Any Medium with AI-Powered Grammar Corrections</p>
                
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-purple-300 animate-color-change">
                   Perfect Your Writing with WriteWise
@@ -67,7 +65,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="how-it-works" className="w-full py-32 bg-#CFF9FF text-blue-400 animate-fade-in">
+        <section id="how-it-works" className="w-full py-32 bg-blue-200/50 text-blue-400 animate-fade-in">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 ">How It Works</h2>
             <div className="grid gap-10 lg:grid-cols-2 items-center py-32">
@@ -119,10 +117,10 @@ export default function Home() {
                 <form className="flex flex-col space-y-2">
                   <Input type="email" placeholder="Email" className="bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400" />
                  
-                  <SignInBtn  style="bg-purple-600 hover:bg-purple-700 text-white">
+                  <Link href={"/dashboard"}   className="bg-purple-600 hover:bg-purple-700 flex p-2 rounded-[.5rem] text-white justify-center" >
                     Sign In
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </SignInBtn>
+                    <ChevronRight className="ml-2 h-4 w-4 self-center" />
+                  </Link>
                 </form>
                
               </div>
