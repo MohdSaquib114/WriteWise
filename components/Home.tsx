@@ -31,7 +31,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-x-4">
-                <Link href={"/dashboard"}  className="bg-blue-400 hover:bg-blue-500 text-white">Try for Free</Link>
+                <Link href={"/dashboard"}  className="bg-blue-400 hover:bg-blue-500 text-white px-4 py-3">Try for Free</Link>
                 <Link href={'/Learn'} className="text-blue-400 border-blue-400 outline p-2 rounded-md hover:bg-blue-500 hover:text-slate-50">Learn More</Link>
               </div>
             </div>

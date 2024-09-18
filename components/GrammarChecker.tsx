@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { ClipboardCopy, LoaderCircle } from 'lucide-react'
+import toast, { Toaster } from 'react-hot-toast';
 
 import axios from "axios"
 import GrammarMistakesList from './MistakeList'
@@ -11,8 +12,9 @@ import GrammarMistakesList from './MistakeList'
 
 type Mistake = {
   mistake: string;
-  correct_version: string;
-  explanation: string
+  suggestion: string;
+  start_index: number;
+  end_index: number
 }
 
 export default function GrammarChecker() {
@@ -23,6 +25,8 @@ export default function GrammarChecker() {
   const [loading, setLoading] = useState(false)
 
 
+
+
   const handleGrammerChecker = async () => {
     try {
       setLoading(true)
@@ -30,11 +34,13 @@ export default function GrammarChecker() {
      
 
       const data = JSON.parse(res.data.message)
-      console.log(data.mistakes)
-      setCorrectedText(data?.corrected_text)
-      setMistakes(data.mistakes)
+      setCorrectedText(data?.correct_text)
+      setMistakes(data.grammar_mistakes)
+     toast.success("Result Generated")
     } catch (error) {
-      console.log(error)
+      toast.error("something went wrong")
+    
+     
     } finally {
       setLoading(false)
     }
@@ -46,8 +52,8 @@ export default function GrammarChecker() {
     setTimeout(() => {
       setCopying(false)
       navigator.clipboard.writeText(plainText)
+      toast.success("Text Copied")
     }, 1000)
- 
   }
 
   return (
@@ -130,6 +136,7 @@ export default function GrammarChecker() {
           <GrammarMistakesList mistakes={mistakes} />
         </div>
       </div>
+      <Toaster />
     </div>
   )
 }
