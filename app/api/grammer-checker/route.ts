@@ -27,8 +27,7 @@ export async function POST(req:NextRequest){
 
   cleaned = cleaned.replace(/[^\w\s.,?!-]/g, '');
         const chatResponse = await grammerChecker(cleaned)
-  
-        
+       
         return NextResponse.json({message:chatResponse},{status:200})
 
     } catch (error) {

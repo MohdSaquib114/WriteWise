@@ -10,7 +10,7 @@ type Mistake = {
   }
 
 const GrammarMistakesList = ({ mistakes }: { mistakes: Mistake[] }) => {
-    console.log(mistakes)
+
   return (
     <div style={{scrollbarWidth:"none"}} className="lg:h-[600px] overflow-y-auto">
       <h2 className="text-xl font-semibold mb-4 ">Grammar Mistakes</h2>

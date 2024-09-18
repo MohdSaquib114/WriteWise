@@ -17,16 +17,16 @@ function Navbar() {
      {
  
             <>
-                <Link className="text-sm font-medium hover:text-purple-300 " href="/">
+                <Link className="text-sm  hover:text-blue-300 " href="/">
                   <HouseIcon />
                 </Link>
-                <Link className="text-sm font-medium hover:text-purple-300 hidden sm:block" href="/#features">
+                <Link className="text-sm  hover:text-blue-300 hidden sm:block" href="/#features">
                     Features
                 </Link>
-                <Link className="text-sm font-medium hover:text-purple-300 hidden sm:block" href="/#how-it-works">
+                <Link className="text-sm  hover:text-blue-300 hidden sm:block" href="/#how-it-works">
                     How It Works
                 </Link>
-                <Link className="text-sm font-medium hover:text-purple-300" href="/dashboard">
+                <Link className="text-sm  hover:text-blue-300" href="/dashboard">
                     Dashboard
                 </Link>
             </> 

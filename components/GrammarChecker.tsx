@@ -31,13 +31,14 @@ export default function GrammarChecker() {
     try {
       setLoading(true)
       const res = await axios.post(`/api/grammer-checker`, { text: input })
-     
+     console.log(res)
 
       const data = JSON.parse(res.data.message)
       setCorrectedText(data?.correct_text)
       setMistakes(data.grammar_mistakes)
      toast.success("Result Generated")
     } catch (error) {
+      console.log(error)
       toast.error("something went wrong")
     
      
