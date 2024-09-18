@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Edit3, Zap, Book, Target, Sparkles, ArrowRight } from "lucide-react"
 
 export default function LearnMore() {
-   //@ts-ignore
+  
   const [ ,setScrollY] = useState(0)
 
   useEffect(() => {
