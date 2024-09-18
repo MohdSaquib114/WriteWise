@@ -6,8 +6,8 @@ import { CheckCircle, Edit3, Zap, ChevronRight } from "lucide-react"
 
 // import Image from "next/image"
 import Link from "next/link"
-import SignInBtn from "./SignInBtn"
-import { FlipWords } from "./ui/flip-words"
+
+
 
 export default function Home() {
  
@@ -31,7 +31,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-x-4">
-                <SignInBtn  style="bg-blue-400 hover:bg-blue-500 text-white">Try for Free</SignInBtn>
+                <Link href={"/dashboard"}  className="bg-blue-400 hover:bg-blue-500 text-white">Try for Free</Link>
                 <Link href={'/Learn'} className="text-blue-400 border-blue-400 outline p-2 rounded-md hover:bg-blue-500 hover:text-slate-50">Learn More</Link>
               </div>
             </div>

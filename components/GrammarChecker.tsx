@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { ClipboardCopy, LoaderCircle } from 'lucide-react'
-import { useSession } from 'next-auth/react'
+
 import axios from "axios"
 import GrammarMistakesList from './MistakeList'
 

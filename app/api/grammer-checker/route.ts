@@ -1,23 +1,8 @@
-import { getUserById } from "@/lib/db";
+
 import { grammerChecker } from "@/lib/grammerChecker";
 import { NextRequest, NextResponse } from "next/server";
 
 
-function removeFirstLine(jsonString:string) {
-    // Find the index of the first occurrence of ':'
-    const colonIndex = jsonString.indexOf(':');
-    
-    if (colonIndex === -1) {
-      // If no colon is found, return the original string
-      return jsonString
-    }
-    
-    // Extract the substring from the first colon to the end
-    const jsonContent = jsonString.substring(colonIndex )
-    // Return the JSON content
-    return jsonContent ;
-  }
-  
 
 export async function POST(req:NextRequest){
     try {
